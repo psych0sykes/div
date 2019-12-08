@@ -4,10 +4,68 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+  <link href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
-  <title>Home Page</title>
+  <title>divdiv</title>
 </head>
-
+<header>
+  <div class="w-full">
+  <header class="bg-teal-400">
+    <nav class="flex justify-between w-full bg-black text-white p-4">
+      <a href="/"><span class="font-semibold text-xl tracking-tight">divdiv</span></a>
+        <div class="md:items-center md:w-auto flex">
+          <div class="md:flex hidden">
+{{!-- ============================ UPDATE THIS LINK ================================ --}}
+            <a class="block md:text-white mr-4" href="/link">your div</a>
+          </div>
+          <div class="flex text-sm" v-else>
+          	<a class="p-2 ml-2 bg-white text-black font-semibold leading-none border border-gray-100 rounded hover:border-transparent hover:bg-gray-100" href="/auth/signin">Login</a>
+          </div>
+        </div>
+    </nav>
+  </header>
+  <main class="flex justify-center items-center">
+  </main>
+  <div class="bottomNav fixed bottom-0 w-full">
+    <nav style="border:1px solid blue" class="md:hidden bottom-0 w-full bg-gray-700 text-xs">
+      <ul class="flex justify-around items-center text-white text-center opacity-75 text-lg font-bold">
+        <li class="p-4 hover:bg-gray-500">
+          <a href="/link">
+            <span>Link 1</span>
+            <svg class="h-6 w-6 fill-current mx-auto" viewBox="0 0 20 20">
+              <path d="M14 8a4 4 0 1 0-8 0v7h8V8zM8.027 2.332A6.003 6.003 0 0 0 4 8v6l-3 2v1h18v-1l-3-2V8a6.003 6.003 0 0 0-4.027-5.668 2 2 0 1 0-3.945 0zM12 18a2 2 0 1 1-4 0h4z" fill-rule="evenodd" />
+            </svg>
+           </a>
+        </li>
+        <li class="p-4 hover:bg-gray-500">
+          <a href="/link">
+            <span>Link 2</span>
+            <svg class="h-6 w-6 fill-current mx-auto" viewBox="0 0 20 20">
+              <path d="M14 8a4 4 0 1 0-8 0v7h8V8zM8.027 2.332A6.003 6.003 0 0 0 4 8v6l-3 2v1h18v-1l-3-2V8a6.003 6.003 0 0 0-4.027-5.668 2 2 0 1 0-3.945 0zM12 18a2 2 0 1 1-4 0h4z" fill-rule="evenodd" />
+            </svg>
+          </a>
+        </li>
+        <li class="p-4 hover:bg-gray-500">
+          <a href="/link">
+            <span>Link 3</span>
+            <svg class="h-6 w-6 fill-current mx-auto" viewBox="0 0 20 20">
+              <path d="M14 8a4 4 0 1 0-8 0v7h8V8zM8.027 2.332A6.003 6.003 0 0 0 4 8v6l-3 2v1h18v-1l-3-2V8a6.003 6.003 0 0 0-4.027-5.668 2 2 0 1 0-3.945 0zM12 18a2 2 0 1 1-4 0h4z" fill-rule="evenodd" />
+            </svg>
+          </a>
+        </li>
+        <li class="p-4 hover:bg-gray-500">
+          <a href="/link">
+            <span>Link 4</span>
+            <svg class="h-6 w-6 fill-current mx-auto" viewBox="0 0 20 20">
+              <path d="M14 8a4 4 0 1 0-8 0v7h8V8zM8.027 2.332A6.003 6.003 0 0 0 4 8v6l-3 2v1h18v-1l-3-2V8a6.003 6.003 0 0 0-4.027-5.668 2 2 0 1 0-3.945 0zM12 18a2 2 0 1 1-4 0h4z" fill-rule="evenodd" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+</header>
 <body>
   {{{body}}}
 </body>
