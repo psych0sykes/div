@@ -1,11 +1,17 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/auth/login", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  // Get all divs
+  app.get("/api/get/div", function(req, res) {
+    db.divdivUserdivs.findAll({}).then(function(dbdivdivUserdivs) {
+      res.json(dbdivdivUserdivs);
     });
   });
+
+  app.post("/api/post/div", function(req, res) {
+    db.divdivUserdivs.findAll({}).then(function(dbdivdivUserdivs) {
+      res.json(dbdivdivUserdivs)
+    })
+  })
 
 };
