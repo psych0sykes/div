@@ -9,8 +9,10 @@ module.exports = function(app) {
   });
 
   app.post("/api/post/div", function(req, res) {
-    db.divdivUserdivs.findAll({}).then(function(dbdivdivUserdivs) {
-      res.json(dbdivdivUserdivs)
+    console.log(req.body);
+    db.divdivUserdivs.create(req.body).then(function(dbdivdivUserdivs) {
+      console.log(dbdivdivUserdivs);
+      res.json(dbdivdivUserdivs);
     })
   })
 
