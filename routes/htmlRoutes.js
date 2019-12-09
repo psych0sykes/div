@@ -10,6 +10,10 @@ module.exports = function(app) {
     res.render("logIn");
   });
 
+  app.get("/auth/signup", function(req, res) {
+    res.render("signup");
+  });
+
   app.get("/yourdiv", function(req, res) {
     res.render("yourdiv");
   });
