@@ -5,5 +5,4 @@ $("#logInButton").click(function(){
 
     // Check db for user email
 
-
 })
