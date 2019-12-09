@@ -6,6 +6,14 @@ module.exports = function(app) {
       res.render("index");
     });
 
+  app.get("/auth/signin", function(req, res) {
+    res.render("logIn");
+  });
+
+  app.get("/yourdiv", function(req, res) {
+    res.render("yourdiv");
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
