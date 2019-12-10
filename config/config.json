@@ -1,0 +1,13 @@
+{
+  "development": {
+    "username": "jek44ddnwn4luz0i",
+    "password": "ux7bf4j2p674mdzy",
+    "database": "sfju7agypau5xrk8",
+    "host": "sp6xl8zoyvbumaa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  },
+  "production": {
+    "use_env_variable": "sp6xl8zoyvbumaa2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+  <link href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/huebee@1/dist/huebee.css">
+  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+  <title>divdiv</title>
+</head>
+
+  <div class="w-full">
+  <header class="bg-teal-400">
+    <nav class="flex justify-between w-full bg-black text-white p-4">
+      <a href="/"><span class="font-semibold text-xl tracking-tight">divdiv</span></a>
+        <div class="md:items-center md:w-auto flex">
+          <div class="md:flex hidden">
+{{!-- ============================ UPDATE THIS LINK ================================ --}}
+            <a class="block md:text-white mr-4 navLink" href="" id="navYourDiv">your div</a>
+          </div>
+          <div class="flex text-sm" v-else>
+          	<a class="p-2 ml-2 bg-white text-black font-semibold leading-none border border-gray-100 rounded hover:border-transparent hover:bg-gray-100" href="/auth/signin" id="navLogin">login</a>
+          </div>
+        </div>
+    </nav>
+  </header>
+  </div>
+<body>
+  {{{body}}}
+</body>
+<script src="https://unpkg.com/huebee@1/dist/huebee.pkgd.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script
+  src="/js/index.js"></script>
+</html>

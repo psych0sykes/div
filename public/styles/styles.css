@@ -1,0 +1,23 @@
+* {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.huebee__cursor {
+    width: 30px;
+    height: 30px;
+}
+.navLink:hover {
+    color: blue;
+}
+#userDiv {
+    width: 150px;
+    height: 150px;
+}
+.divdiv {
+    width: 25px;
+    height: 25px;
+}
+.flexDiv-md{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
