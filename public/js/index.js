@@ -1,7 +1,40 @@
 var localStorage = window.localStorage;
 
-// Populate /yourdiv
+// Populate yourdiv
 
+$(document).ready(function(){
+
+    // get user div color
+    if(localUserId > 0){
+    var localUserId = localStorage.getItem("userId");
+    $.get("api/get/divcolor/" + localUserId, function(data){
+        var color= data.divColor_1;
+        var userName = data.userName;
+        console.log(color);
+    });
+  };
+});
+
+$("saveUserDivButton").click(function(){
+    var localUserId = localStorage.getItem("userId");
+    $.post("api/post/divcolor_1/" + localUserId, function(){
+        console.log("...saved")
+    })
+})
+
+$("#navYourDiv").click(function(event) {
+    event.preventDefault()
+// =====
+    localStorage.setItem("userId",1)
+// =====
+    var localUserId = localStorage.getItem("userId");
+    if(localUserId > 0){
+        console.log("true")
+        window.location.replace("/yourdiv");
+    } else {
+        window.location.replace("/auth/signin");
+    }
+})
 
 $("#logInButton").click(function(){
     // Collect user credentials from form

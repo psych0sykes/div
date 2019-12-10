@@ -3,7 +3,8 @@ module.exports = function(sequelize, DataTypes) {
     userName: DataTypes.STRING,
     password: DataTypes.STRING,
     firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING
+    lastName: DataTypes.STRING,
+    divColor_1: DataTypes.STRING,
   });
   return divdivUserdivs;
 };

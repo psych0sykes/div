@@ -4,4 +4,7 @@
 .huebee__cursor {
     width: 30px;
     height: 30px;
-  }
+}
+.navLink:hover {
+    color: blue;
+}
