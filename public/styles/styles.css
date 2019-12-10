@@ -8,3 +8,7 @@
 .navLink:hover {
     color: blue;
 }
+#userDiv {
+    width: 150px;
+    height: 150px;
+}

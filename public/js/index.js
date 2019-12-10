@@ -1,33 +1,42 @@
-var localStorage = window.localStorage;
 
 // Populate yourdiv
 
-$(document).ready(function(){
 
+
+$(document).ready(function(){
+    var localUserId = sessionStorage.getItem("userId");
     // get user div color
     if(localUserId > 0){
-    var localUserId = localStorage.getItem("userId");
     $.get("api/get/divcolor/" + localUserId, function(data){
-        var color= data.divColor_1;
-        var userName = data.userName;
+        var color= data[0].divColor_1;
+        var userName = data[0].userName;
         console.log(color);
+        $("#colorInput").val(color);
+        $("#userDiv").attr("style","background-color:" + color + ";");
     });
   };
 });
 
-$("saveUserDivButton").click(function(){
-    var localUserId = localStorage.getItem("userId");
-    $.post("api/post/divcolor_1/" + localUserId, function(){
-        console.log("...saved")
-    })
-})
+$("#saveUserDivButton").click(function(){
+    var localUserId = sessionStorage.getItem("userId");
+    var newColor = $("#colorInput").val();
+    console.log(newColor);
+    var request = {
+        divColor_1: newColor
+    }
+    console.log(localUserId);
+
+        $.post("api/post/divcolor_1/" + localUserId, request);
+        $("#userDiv").attr("style","background-color:" + newColor + ";");
+    
+});
 
 $("#navYourDiv").click(function(event) {
     event.preventDefault()
 // =====
-    localStorage.setItem("userId",1)
+    // sessionStorage.setItem("userId",1)
 // =====
-    var localUserId = localStorage.getItem("userId");
+    var localUserId = sessionStorage.getItem("userId");
     if(localUserId > 0){
         console.log("true")
         window.location.replace("/yourdiv");
@@ -42,12 +51,13 @@ $("#logInButton").click(function(){
     var logInPassword = $("#logInPassword").val();
     console.log("logging in...");
     // Check db for user email
-    $.get("/api/auth/" + logInEmail + "/" + logInPassword, function(data){
+    $.get("/api/auth/up/" + logInEmail + "/" + logInPassword, function(data){
         console.log(data.length);
         if(data.length === 0) {
             $("#invalidNote").text("pls try again")
         } else {
-            localStorage.setItem("userId",data);
+            sessionStorage.setItem("userId",data[0].id);
+            console.log(data[0].id);
             window.location.replace("/yourdiv");
         };
     });
@@ -70,17 +80,19 @@ $("#signUpButton").click(function(){
     function checkForUser(cb) { $.get("/api/get/div/" + newUser.userName, function(data){
         console.log(data);
         existUser = data;
-        cb(existUser)
+        cb(existUser, newUser)
     });
     };
 
-    checkForUser(function(existUser){
+    checkForUser(function(existUser, newUser){
     if (existUser.length > 0) {
         alert("email already in use!")
     } else {
         $.post("/api/post/div", newUser)
-        localStorage.setItem("userId",data);
+        $.get("/api/auth/up/" + newUser.userName + "/" + newUser.password, function(data){
+        sessionStorage.setItem("userId",data);
         window.location.replace("/yourdiv");
+        });
     };
     });
 });

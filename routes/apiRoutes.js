@@ -60,8 +60,9 @@ module.exports = function(app) {
   app.post("/api/post/divcolor_1/:id", function(req, res) {
     db.divdivUserdivs.update(req.body,
       {
+        attributes: ["divColor_1"],
         where: {
-          userid: req.params.id
+          id: req.params.id
         }
       }
       ).then(function(divdivUserdivs) {
