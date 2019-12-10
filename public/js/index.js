@@ -6,19 +6,7 @@ $(document).ready(function(){
         $("#navLogin").text("sign out")
     };
 
-// Populate divdiv
-    $.get("/api/get/div", function(data){
-        console.log(data);
-        for (var i = 0; i < data.length; i++){
-            console.log("new div")
-            var newDiv = $("<div>");
-            var color = data[i].divColor_1;
-            $(newDiv).attr("style","background-color: " + color);
-            $(newDiv).addClass("divdiv");
-            $(newDiv).attr("id",data[i].id);
-            $("#divdivs").append(newDiv);
-        }
-    });
+
 
     var localUserId = sessionStorage.getItem("userId");
     // get user div color
@@ -114,7 +102,7 @@ $("#signUpButton").click(function(){
     } else {
         $.post("/api/post/div", newUser)
         $.get("/api/auth/up/" + newUser.userName + "/" + newUser.password, function(data){
-        sessionStorage.setItem("userId",data);
+        sessionStorage.setItem("userId",data[0].id);
         window.location.replace("/yourdiv");
         });
     };
