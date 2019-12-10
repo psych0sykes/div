@@ -1,5 +1,12 @@
 
-// Populate yourdiv
+
+$(document).ready(function(){
+// Login Status
+    if(sessionStorage.getItem("userId") > 0) {
+        $("#navLogin").text("sign out")
+    };
+
+// Populate divdiv
     $.get("/api/get/div", function(data){
         console.log(data);
         for (var i = 0; i < data.length; i++){
@@ -13,8 +20,6 @@
         }
     });
 
-
-$(document).ready(function(){
     var localUserId = sessionStorage.getItem("userId");
     // get user div color
     if(localUserId > 0){
@@ -44,7 +49,7 @@ $("#saveUserDivButton").click(function(){
 
 $("#navYourDiv").click(function(event) {
     event.preventDefault()
-// =====
+// ===== for debugging
     // sessionStorage.setItem("userId",1)
 // =====
     var localUserId = sessionStorage.getItem("userId");
@@ -53,6 +58,14 @@ $("#navYourDiv").click(function(event) {
         window.location.replace("/yourdiv");
     } else {
         window.location.replace("/auth/signin");
+    }
+});
+
+$("#navLogin").click(function(event){
+    if(sessionStorage.getItem("userId") > 0) {
+        event.preventDefault()
+        sessionStorage.clear();
+        window.location.replace("/");
     }
 })
 
