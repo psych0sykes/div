@@ -1,5 +1,7 @@
 var localStorage = window.localStorage;
 
+// Populate /yourdiv
+
 
 $("#logInButton").click(function(){
     // Collect user credentials from form
@@ -14,9 +16,8 @@ $("#logInButton").click(function(){
         } else {
             localStorage.setItem("userId",data);
             window.location.replace("/yourdiv");
-
-        }
-    })
+        };
+    });
 });
 
 $("#signUpButton").click(function(){
@@ -45,8 +46,8 @@ $("#signUpButton").click(function(){
         alert("email already in use!")
     } else {
         $.post("/api/post/div", newUser)
-        // log in
-        // function to load div edit page
+        localStorage.setItem("userId",data);
+        window.location.replace("/yourdiv");
     };
     });
 });
