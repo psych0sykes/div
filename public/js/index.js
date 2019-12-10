@@ -1,6 +1,17 @@
 
 // Populate yourdiv
-
+    $.get("/api/get/div", function(data){
+        console.log(data);
+        for (var i = 0; i < data.length; i++){
+            console.log("new div")
+            var newDiv = $("<div>");
+            var color = data[i].divColor_1;
+            $(newDiv).attr("style","background-color: " + color);
+            $(newDiv).addClass("divdiv");
+            $(newDiv).attr("id",data[i].id);
+            $("#divdivs").append(newDiv);
+        }
+    });
 
 
 $(document).ready(function(){

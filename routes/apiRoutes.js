@@ -4,9 +4,9 @@ module.exports = function(app) {
   // Get all user divs
   app.get("/api/get/div", function(req, res) {
     db.divdivUserdivs.findAll({
-      attributes: ["id","divColor1"]
-    }).then(function(dbdivdivUserdivs) {
-      res.json(dbdivdivUserdivs);
+      attributes: ["id","divColor_1"]
+    }).then(function(divdivUserdivs) {
+      res.json(divdivUserdivs);
     });
   });
 
