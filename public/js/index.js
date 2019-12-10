@@ -4,7 +4,7 @@ $("#logInButton").click(function(){
     var logInPassword = $("#logInPassword").val();
     console.log("logging in...");
     // Check db for user email
-    $.ajax("/api/get/div", function(data){
+    $.get("/api/get/div/" + logInEmail, function(data){
         console.log(data);
     })
 });
@@ -15,19 +15,29 @@ $("#signUpButton").click(function(){
     var signUpPassword = $("#signUpPassword").val();
     var signUpFirstName = $("#signUpFirstName").val();
     var signUpLastName = $("#signUpLastName").val();
-    console.log("signing up...");
-
-    // Check db for user email; if exists
-    // $.ajax("/api/get/div", function(data){
-    //     console.log(data);
-    // })
     var newUser = {
         userName: signUpEmail,
         password: signUpPassword,
         firstName: signUpFirstName,
         lastName: signUpLastName
-    }
-    // If not present in db, POST new user
-    $.post("/api/post/div", newUser)
+    };
+    var existUser = [];
+    // Check db for user email; if exists
+    function checkForUser(cb) { $.get("/api/get/div/" + newUser.userName, function(data){
+        console.log(data);
+        existUser = data;
+        cb(existUser)
+    });
+    };
+
+    checkForUser(function(existUser){
+    if (existUser.length > 0) {
+        alert("email already in use!")
+    } else {
+        $.post("/api/post/div", newUser)
+        // log in
+        // function to load div edit page
+    };
+    });
 });
 
