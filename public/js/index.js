@@ -1,11 +1,21 @@
+var localStorage = window.localStorage;
+
+
 $("#logInButton").click(function(){
     // Collect user credentials from form
     var logInEmail = $("#logInEmail").val();
     var logInPassword = $("#logInPassword").val();
     console.log("logging in...");
     // Check db for user email
-    $.get("/api/get/div/" + logInEmail, function(data){
-        console.log(data);
+    $.get("/api/auth/" + logInEmail + "/" + logInPassword, function(data){
+        console.log(data.length);
+        if(data.length === 0) {
+            $("#invalidNote").text("pls try again")
+        } else {
+            localStorage.setItem("userId",data);
+            window.location.replace("/yourdiv");
+
+        }
     })
 });
 

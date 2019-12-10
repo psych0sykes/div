@@ -7,15 +7,28 @@ module.exports = function(app) {
       res.json(dbdivdivUserdivs);
     });
   });
+  // Get login by user and password
+  app.get("/api/auth/:user/:password", function(req, res) {
+    console.log(req.params.user);
+    db.divdivUserdivs.findAll({
+      attributes: ["id"],
+      where: {
+        userName: req.params.user,
+        password: req.params.password
+      }
+    }).then(function(dbdivdivUserdivs) {
+      console.log(dbdivdivUserdivs);
+      res.json(dbdivdivUserdivs);
+    });
+  });
   // Get user div by username
   app.get("/api/get/div/:user", function(req, res) {
-    console.log(req)
-    db.dbdivdivUserdivs.findAll({
-      attributes: ["id","username"],
+    console.log(req.params.user);
+    db.divdivUserdivs.findAll({
+      attributes: ["userName"],
       where: {
         userName: req.params.user
       }
-
     }).then(function(dbdivdivUserdivs) {
       console.log(dbdivdivUserdivs);
       res.json(dbdivdivUserdivs);
