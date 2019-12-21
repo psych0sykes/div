@@ -4,6 +4,7 @@
   "description": "a visual project",
   "main": "server.js",
   "scripts": {
+    "test": "mocha",
     "start": "node server.js"
   },
   "license": "ISC",
