@@ -3,9 +3,28 @@
 </div>
 
 <script>
+    function shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+        }
     document.addEventListener('DOMContentLoaded', (event) => {
         // Populate divdiv
     $.get("/api/get/div", function(data){
+        shuffle(data);
         console.log(data);
         for (var i = 0; i < data.length; i++){
             console.log("new div")
